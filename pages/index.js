@@ -1,10 +1,14 @@
-import styled from 'styled-components'
-import db from '../db.json'
+import styled from 'styled-components';
+import React from 'react';
+// eslint-disable-next-line import/no-unresolved
+import Head from 'next/head';
+import db from '../db.json';
 import Footer from '../src/components/Footer';
 import GitHubCorner from '../src/components/GitHubCorner';
 import QuizBackground from '../src/components/QuizBackground';
-import Widget from '../src/components/Widget'
+import Widget from '../src/components/Widget';
 
+// eslint-disable-next-line no-unused-vars
 const BackgroundImage = styled.div`
   background-image: url( ${db.bg} );
   flex: 1;
@@ -23,10 +27,12 @@ export const QuizContainer = styled.div`
   }
 `;
 
-
 export default function Home() {
   return (
     <QuizBackground backgroundImage={db.bg}>
+      <Head>
+        <title>Alura Quiz</title>
+      </Head>
       <QuizContainer>
         <Widget>
           <Widget.Header>
@@ -41,9 +47,9 @@ export default function Home() {
             <p>lorem ipsum lorem ipsum</p>
           </Widget.Content>
         </Widget>
-        <Footer/>
+        <Footer />
       </QuizContainer>
-      <GitHubCorner projectUrl='https://github.com/ronylucca'/>
+      <GitHubCorner projectUrl="https://github.com/ronylucca" />
     </QuizBackground>
   );
 }
